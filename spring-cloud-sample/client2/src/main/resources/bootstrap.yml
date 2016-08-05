@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: foo2
+  cloud:
+    config:
+     uri: http://localhost:8888
+     
+server:
+  port: 7070

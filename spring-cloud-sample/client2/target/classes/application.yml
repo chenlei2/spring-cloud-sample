@@ -1,0 +1,23 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+spring:  
+  cloud:  
+    stream:  
+      bindings:  
+        input:        #position1。channelName.
+          destination: mydest #position2。destination，或者可以认为是发布－订阅模型里面的topic，这里应该与输出app中发布的topic一致，表示订阅该主题  
+          binder: rabbit1  
+      binders:  
+        rabbit1:  
+          type: rabbit     #可以是其它，比如kafka  
+          environment:  
+            spring:  
+              rabbitmq:  
+                host: localhost   #rabbitMQ服务器地址  
+                port: 5672          #rabbitMQ服务器端口  
+                username: chenlei  
+                password: chenlei  
+                virtual-host: host1 
